@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado</title>
+</head>
+<body>
+    <select name="estados" id="estados"></select>
+</body>
+<script>
+    const estadoElemento = document.getElementById('estados');
+
+    fetch('http://127.0.0.1/programacao-web-2023/Lista-6/php/controller/EstadosController.php')
+    .then(response => response.json()) 
+    .then(json => cbo(json))
+    .catch(err => console.log('Erro de solicitação', err));
+
+    function cbo(obj){
+        let template = '';
+        obj.forEach(y => {
+            template += `<option value="${y.sigla}">${y.estado}</option>`;
+        });
+        estadoElemento.innerHTML = template;
+    }
+</script>
+</html>

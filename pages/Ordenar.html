@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenar - Questão 9</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: cadetblue;
+            gap: 15px;
+        }   
+
+        input {
+            padding: 10px 5px;
+            background-color: rgb(134, 192, 194);
+            border: 1px solid #000;
+            outline: none;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 100px;
+            border: 1px solid #000;
+            background-color: burlywood;
+            border-radius: 4px;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section class="campo">
+        <div class="campo__principal">
+            <input type="number" name="base" id="base">
+        </div>
+        <form class="campo__generico"></form>
+        <button class="btn">Enviar</button>
+        <div class="result" style="margin-top: 10px;"></div>
+    </section>
+
+    <script>
+        const base = document.getElementById('base');
+        const generico = document.querySelector(".campo__generico");
+        const btn = document.querySelector(".btn");
+        const result = document.querySelector(".result");
+
+        base.addEventListener("blur", e =>{
+            let number = e.target.value;
+            let template = '';
+            for(let i=0; i<parseInt(number); i++)
+                template += `<input type="number" class="filds" name="field${i}" id="field${i}">`;
+            generico.innerHTML = template;
+        });
+
+        btn.addEventListener('click', e => {
+            var formData = [];
+            document.querySelectorAll('.filds').forEach(y => {
+                formData.push({ number: y.value});
+            });
+            fetch('http://127.0.0.1/programacao-web-2023/Lista-6/php/controller/OrdenarController.php', {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: {"Content-type": "application/json; charset=UTF-8"}
+            })
+            .then(response => response.json()) 
+            .then(json => result.innerHTML = "Resultado: " + json)
+            .catch(err => console.log(err));
+        });
+    </script>
+</body>
+</html>

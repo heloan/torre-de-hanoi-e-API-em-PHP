@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: cadetblue;
+    gap: 15px;
+}
+
+.hanoi {
+    max-width: 500px;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+.hanoi__main {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: end;
+    border-bottom: 2px solid #000;
+}
+
+.hanoi__footer {
+    display: flex;
+    height: 20%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.hanoi__torre-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 5px;
+}
+
+.hanoi__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 50px;
+    border: 1px solid #000;
+    background-color: burlywood;
+    color: #000;
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #000;
+    background-color: burlywood;
+    border-radius: 4px;
+    color: #000;
+    cursor: pointer;
+}
+
+.hanoi__btn:nth-child(1){
+    border-radius: 25% 0 0 25%
+}
+
+.hanoi__btn:nth-child(2){
+    border-radius: 0 25% 25% 0;
+}
+
+.hanoi__btn:hover,
+.btn:hover {
+    border: 1px solid burlywood;
+    background-color: #000;
+    color: burlywood;
+}
+
+.hanoi__torre {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 5px;
+}
+
+.hanoi__torre:nth-child(2) {
+    border: 1px dotted #000;
+    border-bottom: none;
+    border-top: none;
+}
+
+.hanoi__torre::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 15px;
+    background-color: #424141;
+} 
+
+.hanoi__torre::before {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 90%;
+    border-radius: 4px;
+    background-color: #000;
+    z-index: -1;
+}
+
+.hanoi__disco{
+    display: inline-block;
+    width: 85%;
+    height: 10px;
+}
+
+.config {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.config__option {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.config__option input {
+    padding: 10px 5px;
+    background-color: rgb(134, 192, 194);
+    border: 1px solid #000;
+    outline: none;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de dados</title>
+
+    <link rel="stylesheet" href="../css/hanoi.css">
+</head>
+<body>
+    <section class="hanoi">
+        <div class="hanoi__main">
+            <div id="torreA" class="hanoi__torre"></div>
+            <div id="torreB" class="hanoi__torre"></div>
+            <div id="torreC" class="hanoi__torre"></div>
+        </div>
+        <div class="hanoi__footer">
+            <div class="hanoi__torre-btn">
+                <button class="hanoi__btn" data-disco="1_2">2</button>
+                <button class="hanoi__btn" data-disco="1_3">3</button>
+            </div>
+            <div class="hanoi__torre-btn">
+                <button class="hanoi__btn" data-disco="2_1">1</button>
+                <button class="hanoi__btn" data-disco="2_3">3</button>
+            </div>
+            <div class="hanoi__torre-btn">
+                <button class="hanoi__btn" data-disco="3_1">1</button>
+                <button class="hanoi__btn" data-disco="3_2">2</button>
+            </div>
+        </div>
+    </section>
+    <section class="config">
+        <div class="config__option">
+            <label for="qntDisco">Qnt. de discos:</label>
+            <input type="number" name="qntDisco" id="qntDisco">
+        </div>
+        <div class="config__option">
+            <label for="qntMovimentos">Qnt. de movimentos:</label>
+            <input type="text" name="qntMovimentos" id="qntMovimentos" disabled="true">
+        </div>
+        <div class="config__option">
+            <label for="limitsMovimentos">Limites de movimentos:</label>
+            <input type="text" name="limitsMovimentos" id="limitsMovimentos" disabled="true">
+        </div>
+    </section>
+    <button class="btn">Jogar</button>
+    <script type="module" src="../js/modulo.js"></script>
+</body>
+</html>
